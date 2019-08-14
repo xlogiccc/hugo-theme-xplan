@@ -1,0 +1,45 @@
+<script src="https://cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="{{ .Site.BaseURL }}js/main.js"></script>
+{{ range .Site.Params.customJS }}
+<script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+{{ end }}
+
+<!-- Google Analytics -->
+{{ if .Site.Params.enableGoogleAnalytics }}
+  {{ template "_internal/google_analytics.html" . }}
+{{ end }}
+
+<!-- Baidu Analytics -->
+{{ if .Site.Params.enableBaiduAnalytics }}
+<script>
+    var baiduAnalytics = '{{ .Site.Params.baiduAnalytics }}';
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?" + baiduAnalytics;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+{{ end }}
+
+<!-- Baidu Push -->
+{{ if .Site.Params.enableBaiduAutoPush }}
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+{{ end }}
+
+<!-- Read Statistic -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

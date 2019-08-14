@@ -1,0 +1,10 @@
+<footer id="footer">
+    <div class="footer-left">{{ .Site.Params.Copyright| safeHTML }} <a href="http://www.miitbeian.gov.cn" rel="external nofollow noopener noreferrer" target="_blank">{{ .Site.Params.Beian | safeHTML }}</a></div>
+    <div class="footer-right">
+        <nav>
+            <ul>
+                {{ partial "nav-list.html" . }}
+            </ul>
+        </nav>
+    </div>
+</footer>

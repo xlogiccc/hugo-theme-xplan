@@ -1,0 +1,68 @@
+# Site Settings
+baseurl = "your_site_url_address"
+languageCode = "zh-CN"
+theme = "hugo-theme-xplan"
+title = "xPlan"
+googleAnalytics = "your_google_analytics_id"
+
+[author]
+  name = "site_author"
+
+[params]
+  # Metadata mostly used in document's head
+  subtitle = "Site Subtitle"
+  description = "Site Description"
+  keywords = "Site Keywords"
+
+  # Set the site copyright
+  logo = "/images/logo.png"
+  copyright = "Copyright © 2019 site_author"
+  beian = "your_beian_info"
+
+  enableRSS = false
+  # Add custom assets with their paths relative to the static folder
+  customCSS = []
+  customJS  = []
+
+  # Set the site analytics
+	enableGoogleAnalytics = false
+	enableBaiduAnalytics = false
+	# Set the value to your baidu analysis code if you want to use baidu analytics
+	baiduAnalytics = "your_baidu_analysis_code"
+  enableBaiduAutoPush = false
+
+  enableComments = true
+  # Set the AppId and AppKey if you want to use Comments - https://valine.js.org/
+  [params.comments]
+    appid = "your_valine_appid"
+    appkey = "your_valine_appkey"
+
+  # Set the additional social link
+  [params.social]
+    [params.social.github]
+      name = "github"
+      url  = "your_github_url"
+      iconfont = "fa fa-github"
+  
+# And you can even create generic menu
+[menu]
+  [[menu.main]]
+    identifier = "archive"
+    name       = "Archives"
+    url        = "/archive"
+    weight     = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+    weight     = 20
+
+[permalinks]
+  archive = "/archive/:slug/"
+  about = "/about/"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

@@ -1,0 +1,6 @@
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archives</a></li>
+<li><a href="/about/">About</a></li>
+{{ if .Site.Params.Social.Github }}
+<li><a href="{{.Site.Params.Social.Github}}" target="_blank">Github</a></li>
+{{ end }}

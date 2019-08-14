@@ -1,0 +1,11 @@
+name = "xPlan"
+license = "MIT"
+licenselink = "https://github.com/xLogic92/hugo-theme-xplan/blob/master/LICENSE.md"
+description = "A minimalistic and responsive theme for bloggers."
+tags = ["blog", "beautiful", "minimal", "valine comments", "syntax highlighting", "tagcloud"]
+features = ["blog", "beautiful", "minimal", "valine comments", "syntax highlighting", "tagcloud"]
+min_version = 0.30
+
+[author]
+  name = "xLogic"
+  homepage = "https://github.com/xLogic92"

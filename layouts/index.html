@@ -1,0 +1,43 @@
+{{ partial "head.html" . }}
+    <body>
+        <div class="content index width mx-auto px3 my4">
+            {{ partial "nav.html" . }}
+            <section id="wrapper" class="home">
+                <section id="about">
+                    <div class="description coding">
+                        <span class="typed"></span>
+                    </div>
+                    <p style="display: inline"><span><i class="fa fa-eye"></i> <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> </span></span>| Find me on</p>
+                    {{- with .Site.Params.social }}
+                    <ul id="sociallinks">
+                        {{ partial "social-icons.html" . }}
+                    </ul>
+                    {{- end }}
+                    <p style="display: inline">.</p>
+                </section>
+                <section id="writing">
+                    <span class="h1"><a href="/archive/">Archives</a></span>
+                    <ul class="post-list" id="post-list">
+                        {{$count := 0}}
+                        {{ range where .Pages "Params.hidden" "ne" "true" }}
+                        {{ $url := replace .Permalink .Site.BaseURL "" }}
+                        {{ if ne $url "about/" }}
+                        {{$count = add $count 1}}
+                        {{ if lt $count 10 }}
+                        <li class="post-item">
+                            <div class="meta">
+                                <time datetime='{{ .Date.Format "2006-01-02" }}' itemprop="datePublished">{{ .Date.Format "2006-01-02"}}</time>
+                            </div>
+                            <span> <a href='{{ .Permalink }}'>{{ .Title }}</a></span>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                        {{ end }}
+                    </ul>
+                </section>
+            </section>
+        </div>
+        {{ partial "footer.html" . }}
+        {{ partial "javascript.html" . }}
+    </body>
+</html>

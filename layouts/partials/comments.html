@@ -1,0 +1,15 @@
+{{ if .Site.Params.enableComments }}
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<div class="blog-post-comments v"></div>
+<script>
+    new Valine({
+        el: '.blog-post-comments', 
+        app_id: '{{.Site.Params.Comments.Appid}}', 
+        app_key: '{{.Site.Params.Comments.Appkey}}', 
+        placeholder: '说点什么?', 
+        avatar:'robohash',
+        notify:true,
+        verify:true
+    });
+</script>
+{{ end }}

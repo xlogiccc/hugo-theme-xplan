@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+    <head>
+        <!-- Meta -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ range .Site.Author }}{{ . }} {{ end }}{{ end }}">
+        <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
+        <meta name="keywords" content="{{ if .IsHome }}{{ .Site.Params.keywords }}{{ else }}{{ .Params.keyword }}{{ end }}" />
+        <!-- Open Graph Protocol http://ogp.me/ -->
+        {{ template "_internal/opengraph.html" . }}
+        <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} - {{ . }} {{ end }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} - {{ . }}{{ end }}{{ end }}</title>
+        <!-- Link -->
+        <link rel="icon" href="{{"favicon.ico" | relURL}}">
+        <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+        {{ if .Site.Params.enableRSS }}
+		<link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+        {{ end }}
+        {{ range .Site.Params.customCSS }}
+		<link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+        {{ end }}
+        <!-- Script -->
+        {{ if .IsPage }}
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.9/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        {{ end }}
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
